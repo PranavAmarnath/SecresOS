@@ -312,7 +312,7 @@ public class CSVView extends JInternalFrame {
 		editMenu.setEnabled(enabled);
 		saveMenuItem.setEnabled(enabled);
 		printButton.setEnabled(enabled);
-		printMenuItem.setEnabled(enabled);
+		//printMenuItem.setEnabled(enabled);
 		closeMenuItem.setEnabled(enabled);
 	}
 	
