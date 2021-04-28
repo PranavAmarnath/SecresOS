@@ -18,9 +18,9 @@ public class Main {
         System.setProperty("apple.awt.antialiasing", "true");
         System.setProperty("apple.awt.textantialiasing", "true");
         System.setProperty("flatlaf.useWindowDecorations", "false");
-        
+
         if(System.getProperty("os.name").toString().contains("Mac")) {
-            try {               
+            try {
                 SwingUtilities.invokeLater(() -> {
                     Desktop desktop = Desktop.getDesktop();
 
@@ -30,17 +30,19 @@ public class Main {
                     desktop.setPreferencesHandler(e -> {
                         JOptionPane.showMessageDialog(MainView.getFrame(), "Preferences", "Preferences", JOptionPane.INFORMATION_MESSAGE);
                     });
-                    desktop.setQuitHandler((e,r) -> {
+                    desktop.setQuitHandler((e, r) -> {
                         System.exit(0);
                     });
                 });
-            } catch (Exception e) { e.printStackTrace(); }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        
-        /*
+
+        ///*
         try {
-            for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+            for(LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if("Nimbus".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -48,9 +50,9 @@ public class Main {
         } catch (Exception e) {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
-        */
-        FlatLightLaf.install();
-        
+        //*/
+        //FlatLightLaf.install();
+
         SwingUtilities.invokeLater(() -> {
             new MainView();
         });
