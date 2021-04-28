@@ -1,15 +1,24 @@
 package com.secres.secresos;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
+import javax.swing.BorderFactory;
+import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JToolBar;
+import javax.swing.SwingUtilities;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
+import com.formdev.flatlaf.FlatLightLaf;
 import com.secres.filebro.FileBrowserFrame;
 import com.secres.secrescsv_lib.CSVFrame;
 
@@ -23,19 +32,30 @@ public class MainView {
     }
 
     private void createAndShowGUI() {
-        frame = new JFrame("SecresOS");
+        frame = new JFrame("SecresOS") {
+            private static final long serialVersionUID = 1562453637101862279L;
+
+            @Override
+            public Dimension getPreferredSize() {
+                return new Dimension(800, 600);
+            }
+        };
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JMenuBar menuBar = new JMenuBar();
-        JMenu appsMenu = new JMenu("Applications");
-        JMenuItem csvItem = new JMenuItem("SecresCSV");
-        JMenuItem fileItem = new JMenuItem("FileBro");
-        appsMenu.add(csvItem);
-        appsMenu.add(fileItem);
-        menuBar.add(appsMenu);
-
         JDesktopPane desktopPane = new JDesktopPane();
+
+        JMenuBar menuBar = new JMenuBar();
+
+        JMenu appsMenu = new JMenu("Applications");
+        JMenu secresMenu = new JMenu("Secres");
+        JMenuItem csvItem = new JMenuItem("SecresCSV");
+        secresMenu.add(csvItem);
+        JMenuItem fileItem = new JMenuItem("FileBro");
+        appsMenu.add(secresMenu);
+        appsMenu.add(fileItem);
+
+        menuBar.add(appsMenu);
 
         csvItem.addActionListener(e -> {
             JInternalFrame csvFrame = new CSVFrame("SecresCSV", docker);
@@ -43,7 +63,6 @@ public class MainView {
             csvFrame.setMaximizable(true);
             csvFrame.setResizable(true);
             csvFrame.setIconifiable(true);
-            csvFrame.toFront();
             desktopPane.add(csvFrame);
         });
 
@@ -53,7 +72,6 @@ public class MainView {
             fileFrame.setMaximizable(true);
             fileFrame.setResizable(true);
             fileFrame.setIconifiable(true);
-            fileFrame.toFront();
             desktopPane.add(fileFrame);
         });
 

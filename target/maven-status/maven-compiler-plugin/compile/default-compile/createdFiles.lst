@@ -10,7 +10,7 @@ com\secres\secrescsv_lib\TableColumnManager.class
 com\secres\secrescsv_lib\CSVFrame$FileSizeComparator.class
 com\secres\secrescsv_lib\CSVFrame$Model$1.class
 com\secres\secrescsv_lib\FileDrop$1.class
-com\secres\filebro\FileTreeCellRenderer.class
+com\secres\filebro\FileBrowserFrame$FileTreeCellRenderer.class
 com\secres\secrescsv_lib\FileDrop$Event.class
 com\secres\secrescsv_lib\FileDrop$TransferableObject.class
 com\secres\filebro\FileBrowserFrame$5.class
@@ -18,6 +18,7 @@ com\secres\secrescsv_lib\CSVFrame$TablePanel.class
 com\secres\secrescsv_lib\CSVFrame$Model$1Worker.class
 com\secres\secrescsv_lib\TableColumnManager$SelectPopupMenu$1.class
 com\secres\filebro\FileBrowserFrame$2.class
+com\secres\secresos\MainView$1.class
 com\secres\secrescsv_lib\TableColumnManager$SelectPopupMenu.class
 com\secres\secresos\DockableFrame.class
 com\secres\secrescsv_lib\CSVFrame.class

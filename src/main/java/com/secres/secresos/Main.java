@@ -39,7 +39,7 @@ public class Main {
             }
         }
 
-        ///*
+        /*
         try {
             for(LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if("Nimbus".equals(info.getName())) {
@@ -50,8 +50,8 @@ public class Main {
         } catch (Exception e) {
             // If Nimbus is not available, you can set the GUI to another look and feel.
         }
-        //*/
-        //FlatLightLaf.install();
+        */
+        FlatLightLaf.install();
 
         SwingUtilities.invokeLater(() -> {
             new MainView();
