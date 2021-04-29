@@ -82,7 +82,7 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-controls</artifactId>
-			<version>11</version>
+			<version>16</version>
 			<classifier>linux</classifier>
 		</dependency>
 		<dependency>
