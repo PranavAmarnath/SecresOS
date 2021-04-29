@@ -3,23 +3,16 @@ package com.secres.secresos;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-import javax.swing.BorderFactory;
-import javax.swing.JComboBox;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.JToolBar;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 
-import com.formdev.flatlaf.FlatLightLaf;
 import com.secres.filebro.FileBrowserFrame;
+import com.secres.secresbrowser_lib.Browser;
 import com.secres.secrescsv_lib.CSVFrame;
 
 public class MainView {
@@ -50,7 +43,9 @@ public class MainView {
         JMenu appsMenu = new JMenu("Applications");
         JMenu secresMenu = new JMenu("Secres");
         JMenuItem csvItem = new JMenuItem("SecresCSV");
+        JMenuItem browserItem = new JMenuItem("SecresBrowser");
         secresMenu.add(csvItem);
+        secresMenu.add(browserItem);
         JMenuItem fileItem = new JMenuItem("FileBro");
         appsMenu.add(secresMenu);
         appsMenu.add(fileItem);
@@ -73,6 +68,15 @@ public class MainView {
             fileFrame.setResizable(true);
             fileFrame.setIconifiable(true);
             desktopPane.add(fileFrame);
+        });
+        
+        browserItem.addActionListener(e -> {
+            JInternalFrame browserFrame = new Browser("SecresBrowser", docker);
+            browserFrame.setClosable(true);
+            browserFrame.setMaximizable(true);
+            browserFrame.setResizable(true);
+            browserFrame.setIconifiable(true);
+            desktopPane.add(browserFrame);
         });
 
         frame.add(desktopPane);
