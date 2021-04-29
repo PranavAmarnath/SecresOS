@@ -94,7 +94,7 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-graphics </artifactId>
-			<version>11</version>
+			<version>16</version>
 			<classifier>win</classifier>
 		</dependency>
 		<dependency>
