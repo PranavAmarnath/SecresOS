@@ -7,9 +7,6 @@ How the application looks:
 <kbd>
     ![image](https://user-images.githubusercontent.com/64337291/116481805-cadc4400-a838-11eb-90ca-1d39a194af99.png)
 </kbd>
-<kbd>
-    ![image](https://user-images.githubusercontent.com/64337291/116458035-fea77180-a818-11eb-9936-9239665568cd.png)
-</kbd>
 Minimized:
 <kbd>
     ![image](https://user-images.githubusercontent.com/64337291/116482023-2e667180-a839-11eb-9107-14591066c227.png)
