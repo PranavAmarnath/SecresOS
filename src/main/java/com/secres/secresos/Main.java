@@ -4,8 +4,6 @@ import java.awt.Desktop;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UIManager.LookAndFeelInfo;
 
 import com.formdev.flatlaf.FlatLightLaf;
 
@@ -39,18 +37,6 @@ public class Main {
             }
         }
 
-        /*
-        try {
-            for(LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-                if("Nimbus".equals(info.getName())) {
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            // If Nimbus is not available, you can set the GUI to another look and feel.
-        }
-        */
         FlatLightLaf.install();
 
         SwingUtilities.invokeLater(() -> {
