@@ -64,7 +64,7 @@
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-swing</artifactId>
-			<version>11</version>
+			<version>16</version>
 			<classifier>linux</classifier>
 		</dependency>
 		<dependency>
