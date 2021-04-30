@@ -9,7 +9,7 @@ How the application looks:
 </kbd>
 Minimized:
 <kbd>
-    ![secresos_minimized](https://user-images.githubusercontent.com/64337291/116622785-1571c500-a8fa-11eb-99e6-91ec26def5eb.png)
+    ![secresos_minimized](https://user-images.githubusercontent.com/64337291/116642624-2d5e3e80-a924-11eb-90f6-4c95dcf436be.png)
 </kbd>
 
 Other Secres applications as well as third-party ones are expected to be supported in the near future.
