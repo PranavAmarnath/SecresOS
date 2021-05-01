@@ -1,15 +1,15 @@
 # SecresOS
-#### A Java Swing virtual desktop/operating system that relies on the host system's information. This is the main Secres product as it combines the other three Secres products into one.
+#### A Java Swing application that relies on the host system's information. It is meant to function as a lightweight UI for quick interaction with the system and Internet. This is the main Secres product as it combines all other Secres applications into one.
 
 There is a menu bar at the top and taskbar at the bottom.
 
 How the application looks:
 <kbd>
-    ![secresos](https://user-images.githubusercontent.com/64337291/116622612-d80d3780-a8f9-11eb-9793-7db8f99e3337.png)
+    ![secresos](https://user-images.githubusercontent.com/64337291/116771258-c06ba700-a9fe-11eb-995c-eccd3edbe06a.png)
 </kbd>
 Minimized:
 <kbd>
-    ![secresos_minimized](https://user-images.githubusercontent.com/64337291/116642624-2d5e3e80-a924-11eb-90f6-4c95dcf436be.png)
+    ![secresos_minimized](https://user-images.githubusercontent.com/64337291/116771302-1a6c6c80-a9ff-11eb-8770-a88a44e09174.png)
 </kbd>
 
-Other Secres applications as well as third-party ones are expected to be supported in the near future.
+New Secres applications as well as third-party ones are expected to be supported in the near future.
