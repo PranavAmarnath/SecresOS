@@ -11,7 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.setProperty("apple.laf.useScreenMenuBar", "true");
-        System.setProperty("apple.awt.application.name", "SecresCSV");
+        System.setProperty("apple.awt.application.name", "SecresOS");
         System.setProperty("apple.awt.application.appearance", "system");
         System.setProperty("apple.awt.antialiasing", "true");
         System.setProperty("apple.awt.textantialiasing", "true");

@@ -11,14 +11,16 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 
-import com.secres.filebro.FileBrowserFrame;
+import com.secres.filebro_lib.FileBrowserFrame;
 import com.secres.secresbrowser_lib.Browser;
 import com.secres.secrescsv_lib.CSVFrame;
+import com.secres.secresmail_lib.MailFrame;
 
 public class MainView {
 
     private static JFrame frame;
     private JToolBar docker;
+    private static JDesktopPane desktopPane;
 
     public MainView() {
         createAndShowGUI();
@@ -36,7 +38,7 @@ public class MainView {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JDesktopPane desktopPane = new JDesktopPane();
+        desktopPane = new JDesktopPane();
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -44,8 +46,10 @@ public class MainView {
         JMenu secresMenu = new JMenu("Secres");
         JMenuItem csvItem = new JMenuItem("SecresCSV");
         JMenuItem browserItem = new JMenuItem("SecresBrowser");
+        JMenuItem mailItem = new JMenuItem("SecresMail");
         secresMenu.add(csvItem);
         secresMenu.add(browserItem);
+        secresMenu.add(mailItem);
         JMenuItem fileItem = new JMenuItem("FileBro");
         appsMenu.add(secresMenu);
         appsMenu.add(fileItem);
@@ -78,6 +82,15 @@ public class MainView {
             browserFrame.setIconifiable(true);
             desktopPane.add(browserFrame);
         });
+        
+        mailItem.addActionListener(e -> {
+            JInternalFrame mailFrame = new MailFrame("SecresMail", docker);
+            mailFrame.setClosable(true);
+            mailFrame.setMaximizable(true);
+            mailFrame.setResizable(true);
+            mailFrame.setIconifiable(true);
+            desktopPane.add(mailFrame);
+        });
 
         frame.add(desktopPane);
         frame.setJMenuBar(menuBar);
@@ -91,6 +104,10 @@ public class MainView {
 
     public static JFrame getFrame() {
         return frame;
+    }
+    
+    public static JDesktopPane getDesktop() {
+        return desktopPane;
     }
 
 }
