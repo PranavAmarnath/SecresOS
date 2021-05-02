@@ -1,5 +1,5 @@
 # SecresOS
-#### A Java Swing application that relies on the host system's information. It is meant to function as a lightweight UI for quick interaction with the system and Internet. This is the main Secres product as it combines all other Secres applications into one.
+#### A Java application that relies on the host system's information. It is meant to function as a lightweight UI for quick interaction with the system and Internet, as a standalone application or boot option. This is the main Secres product as it combines all other Secres applications into one.
 
 [Current Version: v1.0](https://github.com/PranavAmarnath/SecresOS/releases/tag/v1.0)<p>
 [Download App](https://github.com/PranavAmarnath/SecresOS/releases/download/v1.0/secresos-1.0-SNAPSHOT.jar)
