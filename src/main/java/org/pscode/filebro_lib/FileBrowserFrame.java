@@ -50,7 +50,7 @@ import java.net.URL;
  * 
  * @author Andrew Thompson
  * @author Pranav Amarnath
- * @version 2020-04-30
+ * @version 2021-04-30
  * @see http://codereview.stackexchange.com/q/4446/7784
  * @license LGPL
  */
