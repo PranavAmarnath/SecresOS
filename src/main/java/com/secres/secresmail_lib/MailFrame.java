@@ -438,7 +438,7 @@ public class MailFrame extends DockableFrame {
             loginPane.add(labelPanel);
             loginPane.add(fieldPanel);
             loginPane.setBorder(BorderFactory.createEmptyBorder(SPACE, SPACE, SPACE, SPACE));
-            
+
             createLoginDialog();
         }
 
@@ -456,11 +456,11 @@ public class MailFrame extends DockableFrame {
             dialog.setVisible(true);
             MainView.getDesktop().add(dialog);
         }
-        
+
         public JInternalFrame getDialog() {
             return dialog;
         }
-        
+
     }
 
     class Model {

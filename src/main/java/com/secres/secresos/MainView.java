@@ -11,7 +11,9 @@ import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JToolBar;
 
-import com.secres.filebro_lib.FileBrowserFrame;
+import org.gcalc.gcalc_lib.GraphWindow;
+import org.pscode.filebro_lib.FileBrowserFrame;
+
 import com.secres.secresbrowser_lib.Browser;
 import com.secres.secrescsv_lib.CSVFrame;
 import com.secres.secresmail_lib.MailFrame;
@@ -51,8 +53,10 @@ public class MainView {
         secresMenu.add(browserItem);
         secresMenu.add(mailItem);
         JMenuItem fileItem = new JMenuItem("FileBro");
+        JMenuItem calcItem = new JMenuItem("GCalc");
         appsMenu.add(secresMenu);
         appsMenu.add(fileItem);
+        appsMenu.add(calcItem);
 
         menuBar.add(appsMenu);
 
@@ -73,7 +77,7 @@ public class MainView {
             fileFrame.setIconifiable(true);
             desktopPane.add(fileFrame);
         });
-        
+
         browserItem.addActionListener(e -> {
             JInternalFrame browserFrame = new Browser("SecresBrowser", docker);
             browserFrame.setClosable(true);
@@ -82,7 +86,7 @@ public class MainView {
             browserFrame.setIconifiable(true);
             desktopPane.add(browserFrame);
         });
-        
+
         mailItem.addActionListener(e -> {
             JInternalFrame mailFrame = new MailFrame("SecresMail", docker);
             mailFrame.setClosable(true);
@@ -90,6 +94,20 @@ public class MainView {
             mailFrame.setResizable(true);
             mailFrame.setIconifiable(true);
             desktopPane.add(mailFrame);
+        });
+        
+        calcItem.addActionListener(e -> {
+            JInternalFrame calcFrame = null;
+            try {
+                calcFrame = new GraphWindow("GCalc", docker);
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+            calcFrame.setClosable(true);
+            calcFrame.setMaximizable(true);
+            calcFrame.setResizable(true);
+            calcFrame.setIconifiable(true);
+            desktopPane.add(calcFrame);
         });
 
         frame.add(desktopPane);
@@ -105,7 +123,7 @@ public class MainView {
     public static JFrame getFrame() {
         return frame;
     }
-    
+
     public static JDesktopPane getDesktop() {
         return desktopPane;
     }

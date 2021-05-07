@@ -25,48 +25,48 @@ import jakarta.mail.internet.MimeMultipart;
  */
 public class EmailUtility {
 
-	public static void sendEmail(Properties smtpProperties, String toAddress, String subject, String message, File[] attachFiles) throws AddressException, MessagingException, IOException {
+    public static void sendEmail(Properties smtpProperties, String toAddress, String subject, String message, File[] attachFiles) throws AddressException, MessagingException, IOException {
 
-		final String username = smtpProperties.getProperty("mail.user");
-		final String password = smtpProperties.getProperty("mail.password");
+        final String username = smtpProperties.getProperty("mail.user");
+        final String password = smtpProperties.getProperty("mail.password");
 
-		// creates a new e-mail message
-		Message msg = new MimeMessage(Session.getInstance(smtpProperties));
+        // creates a new e-mail message
+        Message msg = new MimeMessage(Session.getInstance(smtpProperties));
 
-		msg.setFrom(new InternetAddress(username));
-		InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
-		msg.setRecipients(Message.RecipientType.TO, toAddresses);
-		msg.setSubject(subject);
-		msg.setSentDate(new Date());
+        msg.setFrom(new InternetAddress(username));
+        InternetAddress[] toAddresses = { new InternetAddress(toAddress) };
+        msg.setRecipients(Message.RecipientType.TO, toAddresses);
+        msg.setSubject(subject);
+        msg.setSentDate(new Date());
 
-		// creates message part
-		MimeBodyPart messageBodyPart = new MimeBodyPart();
-		messageBodyPart.setContent(message, "text/html");
+        // creates message part
+        MimeBodyPart messageBodyPart = new MimeBodyPart();
+        messageBodyPart.setContent(message, "text/html");
 
-		// creates multi-part
-		Multipart multipart = new MimeMultipart();
-		multipart.addBodyPart(messageBodyPart);
+        // creates multi-part
+        Multipart multipart = new MimeMultipart();
+        multipart.addBodyPart(messageBodyPart);
 
-		// adds attachments
-		if(attachFiles != null && attachFiles.length > 0) {
-			for(File aFile : attachFiles) {
-				MimeBodyPart attachPart = new MimeBodyPart();
+        // adds attachments
+        if(attachFiles != null && attachFiles.length > 0) {
+            for(File aFile : attachFiles) {
+                MimeBodyPart attachPart = new MimeBodyPart();
 
-				try {
-					attachPart.attachFile(aFile);
-				} catch (IOException ex) {
-					throw ex;
-				}
+                try {
+                    attachPart.attachFile(aFile);
+                } catch (IOException ex) {
+                    throw ex;
+                }
 
-				multipart.addBodyPart(attachPart);
-			}
-		}
+                multipart.addBodyPart(attachPart);
+            }
+        }
 
-		// sets the multi-part as e-mail's content
-		msg.setContent(multipart);
+        // sets the multi-part as e-mail's content
+        msg.setContent(multipart);
 
-		// sends the e-mail
-		Transport.send(msg, username, password);
-	}
+        // sends the e-mail
+        Transport.send(msg, username, password);
+    }
 
 }

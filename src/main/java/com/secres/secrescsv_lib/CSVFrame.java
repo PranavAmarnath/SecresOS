@@ -89,7 +89,7 @@ public class CSVFrame extends DockableFrame {
         super(title, jtb);
         createAndShowGUI();
     }
-    
+
     @Override
     public Dimension getPreferredSize() {
         return new Dimension(500, 400);
