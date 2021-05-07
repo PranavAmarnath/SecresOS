@@ -7,13 +7,10 @@ A Java application that relies on the host system's information. It is meant to 
 
 How SecresOS looks (only some applications opened):
 <kbd>
-    ![image](https://user-images.githubusercontent.com/64337291/117395799-85112280-aead-11eb-903e-47dd29f7423d.png)
+    ![image](https://user-images.githubusercontent.com/64337291/117487745-554f3280-af20-11eb-85e8-60d0d29358ec.png)
 </kbd>
 <kbd>
-    ![image](https://user-images.githubusercontent.com/64337291/117396050-08cb0f00-aeae-11eb-89a0-40f74af86983.png)
-</kbd>
-<kbd>
-    ![secresos_minimized](https://user-images.githubusercontent.com/64337291/116771302-1a6c6c80-a9ff-11eb-8770-a88a44e09174.png)
+    ![image](https://user-images.githubusercontent.com/64337291/117488569-6e0c1800-af21-11eb-9baf-a726c0afdde8.png)
 </kbd>
 
 Applications included:
@@ -23,5 +20,6 @@ Applications included:
     * [SecresBrowser](https://github.com/PranavAmarnath/SecresBrowser)
 * [FileBro](https://codereview.stackexchange.com/questions/4446/file-browser-gui) (third-party, LGPL) by Andrew Thompson
 * [GCalc](https://github.com/carlalbrecht/GraphingCalculator) (third-party, GPL 3.0) by Carl Albrecht
+* [QuickTerm](https://stackoverflow.com/a/32343778/13772184) (third-party, CC BY-SA 3.0) by MadProgrammer
 
 New Secres applications as well as selective third-party ones are expected to be supported in the near future.
