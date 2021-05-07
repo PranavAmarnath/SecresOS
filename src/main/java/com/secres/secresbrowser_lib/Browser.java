@@ -30,11 +30,11 @@ public class Browser extends DockableFrame {
             // close tab here
             tabbedPane.removeTabAt(tabIndex);
         });
-        tabbedPane.putClientProperty("JTabbedPane.tabCloseToolTipText", "Close");        
-        
+        tabbedPane.putClientProperty("JTabbedPane.tabCloseToolTipText", "Close");
+
         JPanel mainPanel = new JPanel(new BorderLayout());
         mainPanel.add(tabbedPane);
-        
+
         KeyStroke newKeyStroke = KeyStroke.getKeyStroke(KeyEvent.VK_T, InputEvent.CTRL_DOWN_MASK);
         Action newAction = new AbstractAction() {
             private static final long serialVersionUID = 7584979580376385292L;
@@ -47,7 +47,7 @@ public class Browser extends DockableFrame {
         };
         this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(newKeyStroke, "NewTab");
         this.getRootPane().getActionMap().put("NewTab", newAction);
-        
+
         KeyStroke closeKeyStroke = KeyStroke.getKeyStroke(KeyEvent.VK_W, InputEvent.CTRL_DOWN_MASK);
         Action closeAction = new AbstractAction() {
             private static final long serialVersionUID = 5640141805009897072L;
@@ -59,11 +59,11 @@ public class Browser extends DockableFrame {
         };
         this.getRootPane().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW).put(closeKeyStroke, "CloseTab");
         this.getRootPane().getActionMap().put("CloseTab", closeAction);
-        
+
         tabbedPane.addTab("New Tab", new SinglePage().getBox());
-        
+
         add(mainPanel);
-        
+
         pack();
         setVisible(true);
     }

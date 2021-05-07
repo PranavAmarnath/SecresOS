@@ -1,4 +1,4 @@
-package com.secres.filebro_lib;
+package org.pscode.filebro_lib;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -508,7 +508,7 @@ public class FileBrowserFrame extends DockableFrame {
             return label;
         }
     }
-    
+
 }
 
 /** A TableModel to hold File[]. */
