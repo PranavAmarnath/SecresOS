@@ -3,7 +3,9 @@ com\secres\secrescsv_lib\RowNumberTable.class
 org\gcalc\gcalc_lib\EquationEditorListener.class
 com\secres\secrescsv_lib\CSVFrame$Model.class
 com\secres\secresos\MainView.class
+org\quickterm\quickterm_lib\QuickTerminal$ConsolePane$1.class
 org\gcalc\gcalc_lib\Equation$Expression.class
+org\quickterm\quickterm_lib\QuickTerminal$AppendTask.class
 org\pscode\filebro_lib\FileBrowserFrame$8.class
 com\secres\secresmail_lib\HTMLDocumentEditor$StrikeThroughAction.class
 com\secres\secresmail_lib\MailFrame$Model$3.class
@@ -13,10 +15,13 @@ com\secres\secresmail_lib\MailFrame$1.class
 org\pscode\filebro_lib\FileBrowserFrame$5.class
 org\gcalc\gcalc_lib\JMinimalSplitPane$ZeroSizeDivider.class
 org\pscode\filebro_lib\FileBrowserFrame$2.class
+org\quickterm\quickterm_lib\QuickTerminal$ProcessRunner.class
 org\gcalc\gcalc_lib\Instruction.class
 com\secres\secrescsv_lib\FileDrop$TransferableObject$Fetcher.class
 com\secres\secresmail_lib\MailFrame$4.class
+org\quickterm\quickterm_lib\QuickTerminal$ConsolePane.class
 com\secres\secrescsv_lib\CSVFrame$FileSizeComparator.class
+org\quickterm\quickterm_lib\QuickTerminal$CommandListener.class
 org\pscode\filebro_lib\FileBrowserFrame$3.class
 org\pscode\filebro_lib\FileBrowserFrame$FileTreeCellRenderer.class
 org\gcalc\gcalc_lib\EquationListener.class
@@ -27,6 +32,7 @@ com\secres\secresbrowser_lib\ImageButton.class
 com\secres\secresmail_lib\MailFrame$3.class
 com\secres\secresbrowser_lib\Browser$1.class
 com\secres\secresos\DockableFrame$1.class
+org\quickterm\quickterm_lib\QuickTerminal$ProtectedDocumentFilter.class
 com\secres\secrescsv_lib\CSVFrame$1.class
 com\secres\secresbrowser_lib\Browser.class
 com\secres\secrescsv_lib\FileDrop$Listener.class
@@ -46,6 +52,7 @@ org\gcalc\gcalc_lib\JMinimalSplitPane$JMinimalSplitPaneUI.class
 com\secres\secresmail_lib\MailFrame$Model.class
 com\secres\secresmail_lib\MailFrame$Model$NewMessageTimer.class
 com\secres\secrescsv_lib\FileDrop$1.class
+org\quickterm\quickterm_lib\QuickTerminal.class
 com\secres\secresbrowser_lib\SinglePage$1.class
 com\secres\secresbrowser_lib\SinglePage.class
 com\secres\secrescsv_lib\FileDrop$Event.class
@@ -55,6 +62,7 @@ com\secres\secresmail_lib\MailFrame$2.class
 com\secres\secresmail_lib\MailFrame$LoginSetup.class
 org\gcalc\gcalc_lib\Instruction$InstType.class
 com\secres\secresos\MainView$1.class
+org\quickterm\quickterm_lib\QuickTerminal$Terminal.class
 com\secres\secrescsv_lib\CSVFrame.class
 com\secres\secresmail_lib\HTMLDocumentEditor$RedoAction.class
 com\secres\secresmail_lib\MailFrame$Model$1.class
@@ -63,12 +71,14 @@ com\secres\secresbrowser_lib\Browser$2.class
 com\secres\secrescsv_lib\RowNumberTable$RowNumberRenderer.class
 com\secres\secresmail_lib\MailFrame$Model$1Worker$2.class
 com\secres\secresmail_lib\MailFrame$Model$1Worker.class
+org\quickterm\quickterm_lib\QuickTerminal$UserInput.class
 com\secres\secresmail_lib\EmailUtility.class
 com\secres\secrescsv_lib\CSVFrame$Model$1.class
 org\pscode\filebro_lib\FileBrowserFrame$6.class
 com\secres\secresmail_lib\HTMLDocumentEditor$UndoAction.class
 org\gcalc\gcalc_lib\JMinimalSplitPane.class
 org\pscode\filebro_lib\FileBrowserFrame.class
+org\quickterm\quickterm_lib\QuickTerminal$Command.class
 com\secres\secresmail_lib\HTMLDocumentEditor$SuperscriptAction.class
 org\gcalc\gcalc_lib\EquationEditor$1.class
 com\secres\secresmail_lib\HTMLDocumentEditor$HTMLFileFilter.class
@@ -76,6 +86,7 @@ com\secres\secresos\DockableFrame.class
 com\secres\secresmail_lib\MailFrame.class
 com\secres\secresos\Main.class
 org\pscode\filebro_lib\FileBrowserFrame$1.class
+org\quickterm\quickterm_lib\QuickTerminal$StreamReader.class
 com\secres\secresmail_lib\FileListCellRenderer.class
 com\secres\secrescsv_lib\FileDrop.class
 com\secres\secresmail_lib\MailFrame$1ForcedListSelectionModel.class

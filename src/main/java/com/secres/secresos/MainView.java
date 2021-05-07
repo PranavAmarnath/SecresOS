@@ -13,6 +13,7 @@ import javax.swing.JToolBar;
 
 import org.gcalc.gcalc_lib.GraphWindow;
 import org.pscode.filebro_lib.FileBrowserFrame;
+import org.quickterm.quickterm_lib.QuickTerminal;
 
 import com.secres.secresbrowser_lib.Browser;
 import com.secres.secrescsv_lib.CSVFrame;
@@ -54,9 +55,11 @@ public class MainView {
         secresMenu.add(mailItem);
         JMenuItem fileItem = new JMenuItem("FileBro");
         JMenuItem calcItem = new JMenuItem("GCalc");
+        JMenuItem termItem = new JMenuItem("QuickTerm");
         appsMenu.add(secresMenu);
         appsMenu.add(fileItem);
         appsMenu.add(calcItem);
+        appsMenu.add(termItem);
 
         menuBar.add(appsMenu);
 
@@ -98,6 +101,13 @@ public class MainView {
             calcFrame.setClosable(true);
             calcFrame.setResizable(true);
             desktopPane.add(calcFrame);
+        });
+        
+        termItem.addActionListener(e -> {
+            JInternalFrame termFrame = new QuickTerminal("QuickTerm", docker);
+            termFrame.setClosable(true);
+            termFrame.setResizable(true);
+            desktopPane.add(termFrame);
         });
 
         frame.add(desktopPane);
