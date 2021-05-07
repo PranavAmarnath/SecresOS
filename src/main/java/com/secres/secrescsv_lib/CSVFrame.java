@@ -318,7 +318,7 @@ public class CSVFrame extends DockableFrame {
         refreshButton.setEnabled(enabled);
         editMenu.setEnabled(enabled);
         saveMenuItem.setEnabled(enabled);
-        printButton.setEnabled(enabled);
+        //printButton.setEnabled(enabled);
         //printMenuItem.setEnabled(enabled);
         closeMenuItem.setEnabled(enabled);
     }
@@ -414,6 +414,7 @@ public class CSVFrame extends DockableFrame {
         printButton.addActionListener(e -> {
             print();
         });
+        printButton.setEnabled(false); // disable because print dialog pops up in a dialog but can't override behavior
 
         selectAllButton = new JButton();
         selectAllButton.setIcon(new FlatSVGIcon("select_all.svg"));
