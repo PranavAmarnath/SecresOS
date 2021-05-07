@@ -5,8 +5,6 @@ A Java application that relies on the host system's information. It is meant to 
     <img src="https://img.shields.io/badge/SecresOS-v1.0-blue" alt="Download SecresOS v1.0" />
 </a>
 
-There is a menu bar at the top and taskbar at the bottom.
-
 How the application looks:
 <kbd>
     ![secresos](https://user-images.githubusercontent.com/64337291/116771258-c06ba700-a9fe-11eb-995c-eccd3edbe06a.png)
