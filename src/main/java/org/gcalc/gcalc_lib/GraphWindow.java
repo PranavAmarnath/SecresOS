@@ -8,8 +8,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Main class of the standalone program, but can also be used in other programs. Instantiating this class will create a new window containing a graph and an equation editor sidebar.
@@ -31,7 +29,7 @@ public class GraphWindow extends DockableFrame implements ActionListener {
         super(title, jtb);
 
         // Set window properties
-        this.setTitle("Graphing Calculator");
+        this.setTitle("GCalc");
 
         Container pane = this.getContentPane();
         pane.setPreferredSize(new Dimension(800, 500));
