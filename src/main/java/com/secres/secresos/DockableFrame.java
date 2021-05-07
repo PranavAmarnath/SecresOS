@@ -36,13 +36,7 @@ public class DockableFrame extends JInternalFrame {
 
     private void toggleState() {
         try {
-            if(this.isIcon()) {
-                this.setIcon(false);
-            }
-            else {
-                if(this.isSelected()) this.setIcon(true);
-                else this.setSelected(true);
-            }
+            this.setSelected(true);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

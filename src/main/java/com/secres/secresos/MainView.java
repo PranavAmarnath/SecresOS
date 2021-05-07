@@ -63,36 +63,28 @@ public class MainView {
         csvItem.addActionListener(e -> {
             JInternalFrame csvFrame = new CSVFrame("SecresCSV", docker);
             csvFrame.setClosable(true);
-            csvFrame.setMaximizable(true);
             csvFrame.setResizable(true);
-            csvFrame.setIconifiable(true);
             desktopPane.add(csvFrame);
         });
 
         fileItem.addActionListener(e -> {
             JInternalFrame fileFrame = new FileBrowserFrame("FileBro", docker);
             fileFrame.setClosable(true);
-            fileFrame.setMaximizable(true);
             fileFrame.setResizable(true);
-            fileFrame.setIconifiable(true);
             desktopPane.add(fileFrame);
         });
 
         browserItem.addActionListener(e -> {
             JInternalFrame browserFrame = new Browser("SecresBrowser", docker);
             browserFrame.setClosable(true);
-            browserFrame.setMaximizable(true);
             browserFrame.setResizable(true);
-            browserFrame.setIconifiable(true);
             desktopPane.add(browserFrame);
         });
 
         mailItem.addActionListener(e -> {
             JInternalFrame mailFrame = new MailFrame("SecresMail", docker);
             mailFrame.setClosable(true);
-            mailFrame.setMaximizable(true);
             mailFrame.setResizable(true);
-            mailFrame.setIconifiable(true);
             desktopPane.add(mailFrame);
         });
         
@@ -104,9 +96,7 @@ public class MainView {
                 e1.printStackTrace();
             }
             calcFrame.setClosable(true);
-            calcFrame.setMaximizable(true);
             calcFrame.setResizable(true);
-            calcFrame.setIconifiable(true);
             desktopPane.add(calcFrame);
         });
 
