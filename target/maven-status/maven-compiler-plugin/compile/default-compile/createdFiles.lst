@@ -89,6 +89,7 @@ org\pscode\filebro_lib\FileBrowserFrame$1.class
 org\quickterm\quickterm_lib\QuickTerminal$StreamReader.class
 com\secres\secresmail_lib\FileListCellRenderer.class
 com\secres\secrescsv_lib\FileDrop.class
+com\secres\secresmail_lib\MailFrame$LoginSetup$1.class
 com\secres\secresmail_lib\MailFrame$1ForcedListSelectionModel.class
 com\secres\secresbrowser_lib\SinglePage$2.class
 com\secres\secresmail_lib\MailFrame$6.class
