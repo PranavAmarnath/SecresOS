@@ -39,6 +39,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.SwingUtilities;
 import javax.swing.SwingWorker;
 import javax.swing.border.CompoundBorder;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
@@ -85,6 +87,7 @@ public class MailFrame extends DockableFrame {
     private LoginSetup loginSetup;
     private Model model;
     private Properties properties;
+    private boolean authenticated = false;
 
     public MailFrame(String title, JToolBar jtb) {
         super(title, jtb);
@@ -449,6 +452,13 @@ public class MailFrame extends DockableFrame {
 
         private void createLoginDialog() {
             dialog = new JInternalFrame("Login");
+            dialog.addInternalFrameListener(new InternalFrameAdapter() {
+                public void internalFrameClosed(InternalFrameEvent e) {
+                    if(authenticated == false) {
+                        dispose();
+                    }
+                }
+            });
             dialog.setClosable(true);
             dialog.add(loginPane);
             dialog.setPreferredSize(new Dimension(300, 100));
@@ -587,6 +597,7 @@ public class MailFrame extends DockableFrame {
                 }
 
                 MailFrame.this.setVisible(true);
+                authenticated = true;
                 MailFrame.this.loginSetup.getDialog().dispose();
 
                 // create the folder object and open it
