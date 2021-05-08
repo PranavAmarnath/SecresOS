@@ -7,10 +7,10 @@ A Java application that relies on the host system's information. It is meant to 
 
 How SecresOS looks (only some applications opened):
 <kbd>
-    ![image](https://user-images.githubusercontent.com/64337291/117487745-554f3280-af20-11eb-85e8-60d0d29358ec.png)
+    ![image](https://user-images.githubusercontent.com/64337291/117395799-85112280-aead-11eb-903e-47dd29f7423d.png)
 </kbd>
 <kbd>
-    ![image](https://user-images.githubusercontent.com/64337291/117488569-6e0c1800-af21-11eb-9baf-a726c0afdde8.png)
+    ![image](https://user-images.githubusercontent.com/64337291/117520233-1343e200-af5c-11eb-9237-34f2241448ba.png)
 </kbd>
 
 Applications included:
