@@ -14,15 +14,16 @@ Run demo with java -jar secresos-1.1-SNAPSHOT.jar (or double-click it). Requires
 </kbd>
 &nbsp;
 <kbd>
-    <img src="https://user-images.githubusercontent.com/64337291/117520233-1343e200-af5c-11eb-9237-34f2241448ba.png">
+    <img src="https://user-images.githubusercontent.com/64337291/118728230-ac8ab800-b7e8-11eb-9804-07b66b22cfd6.png">
 </kbd>
 <P>
 
 ## Built-in Apps
-* [Secres](https://github.com/PranavAmarnath/SecresOS)
+* [Secres](https://github.com/PranavAmarnath/SecresOS) (first-party, Apache 2.0) by Pranav Amarnath
     * [SecresCSV](https://github.com/PranavAmarnath/SecresCSV)
     * [SecresMail](https://github.com/PranavAmarnath/SecresMail)
     * [SecresBrowser](https://github.com/PranavAmarnath/SecresBrowser)
+    * [SecresCam](https://github.com/PranavAmarnath/SecresCam)
 * [FileBro](https://codereview.stackexchange.com/questions/4446/file-browser-gui) (third-party, LGPL) by Andrew Thompson
 * [GCalc](https://github.com/carlalbrecht/GraphingCalculator) (third-party, GPL 3.0) by Carl Albrecht
 * [QuickTerm](https://stackoverflow.com/a/32343778/13772184) (third-party, CC BY-SA 3.0) by MadProgrammer
