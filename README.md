@@ -6,7 +6,7 @@ A Java application that relies on the host system's information. It is meant to 
     <img src="https://img.shields.io/badge/SecresOS-1.1-blue" alt="Download SecresOS 1.1" />
 </a>
 <p>
-Run demo with java -jar secresos-1.1-SNAPSHOT.jar (or double-click it). Requires Java 11 or newer.
+Run with java -jar secresos-1.1-SNAPSHOT.jar (or double-click it). Requires Java 11 or newer.
 
 ## Examples
 <kbd>
