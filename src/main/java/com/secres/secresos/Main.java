@@ -37,7 +37,7 @@ public class Main {
             }
         }
 
-        FlatLightLaf.install();
+        FlatLightLaf.setup();
 
         SwingUtilities.invokeLater(() -> {
             new MainView();

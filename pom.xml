@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>com.formdev</groupId>
 			<artifactId>flatlaf</artifactId>
-			<version>1.1.2</version>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>com.opencsv</groupId>
@@ -26,7 +26,7 @@
 		<dependency>
 			<groupId>com.formdev</groupId>
 			<artifactId>flatlaf-extras</artifactId>
-			<version>1.1.2</version>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>org.swinglabs.swingx</groupId>
@@ -36,7 +36,7 @@
 		<dependency>
 			<groupId>com.formdev</groupId>
 			<artifactId>flatlaf-swingx</artifactId>
-			<version>1.1.2</version>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
 			<groupId>jakarta.mail</groupId>
@@ -325,7 +325,6 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<minimizeJar>true</minimizeJar>
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
