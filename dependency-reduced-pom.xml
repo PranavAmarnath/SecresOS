@@ -4,7 +4,7 @@
   <groupId>com.secres</groupId>
   <artifactId>secresos</artifactId>
   <name>SecresOS</name>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.2-SNAPSHOT</version>
   <description>An operating system in a desktop application.</description>
   <build>
     <plugins>
@@ -18,6 +18,7 @@
               <goal>shade</goal>
             </goals>
             <configuration>
+              <minimizeJar>true</minimizeJar>
               <transformers>
                 <transformer>
                   <mainClass>com.secres.secresos.Main</mainClass>

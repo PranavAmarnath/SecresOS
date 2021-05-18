@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.secres</groupId>
 	<artifactId>secresos</artifactId>
-	<version>1.1-SNAPSHOT</version>
+	<version>1.2-SNAPSHOT</version>
 	<name>SecresOS</name>
 	<description>An operating system in a desktop application.</description>
 	<properties>
@@ -285,6 +285,14 @@
 					<groupId>net.billylieurance.azuresearch</groupId>
 				</exclusion>
 				<exclusion>
+					<artifactId>org.jfree</artifactId>
+					<groupId>jfreechart</groupId>
+				</exclusion>
+				<exclusion>
+					<artifactId>org.jfree</artifactId>
+					<groupId>jcommon</groupId>
+				</exclusion>
+				<exclusion>
 					<artifactId>snuggletex-core</artifactId>
 					<groupId>uk.ac.ed.ph.snuggletex</groupId>
 				</exclusion>
@@ -317,23 +325,24 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
+							<minimizeJar>true</minimizeJar>
 							<transformers>
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<mainClass>com.secres.secresos.Main</mainClass>
 								</transformer>
 							</transformers>
-								<filters>
-									<filter>
-										<artifact>*:*</artifact>
-										<excludes>
-											<exclude>META-INF/*.SF</exclude>
-											<exclude>META-INF/*.DSA</exclude>
-											<exclude>META-INF/*.RSA</exclude>
-										</excludes>
-									</filter>
-								</filters>
-								<!-- Additional configuration. -->
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>META-INF/*.SF</exclude>
+										<exclude>META-INF/*.DSA</exclude>
+										<exclude>META-INF/*.RSA</exclude>
+									</excludes>
+								</filter>
+							</filters>
+							<!-- Additional configuration. -->
 						</configuration>
 					</execution>
 				</executions>
