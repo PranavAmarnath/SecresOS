@@ -15,11 +15,13 @@ com\secres\secresmail_lib\MailFrame$1.class
 org\pscode\filebro_lib\FileBrowserFrame$5.class
 org\gcalc\gcalc_lib\JMinimalSplitPane$ZeroSizeDivider.class
 org\pscode\filebro_lib\FileBrowserFrame$2.class
+com\secres\secrescam_lib\CamFrame$3.class
 org\quickterm\quickterm_lib\QuickTerminal$ProcessRunner.class
 org\gcalc\gcalc_lib\Instruction.class
 com\secres\secrescsv_lib\FileDrop$TransferableObject$Fetcher.class
 com\secres\secresmail_lib\MailFrame$4.class
 org\quickterm\quickterm_lib\QuickTerminal$ConsolePane.class
+com\secres\secrescam_lib\CamFrame$ProgressCircleUI.class
 com\secres\secrescsv_lib\CSVFrame$FileSizeComparator.class
 org\quickterm\quickterm_lib\QuickTerminal$CommandListener.class
 org\pscode\filebro_lib\FileBrowserFrame$3.class
@@ -27,12 +29,14 @@ org\pscode\filebro_lib\FileBrowserFrame$FileTreeCellRenderer.class
 org\gcalc\gcalc_lib\EquationListener.class
 com\secres\secrescsv_lib\TableColumnManager$SelectPopupMenu$1.class
 com\secres\secresmail_lib\HTMLDocumentEditor$UndoHandler.class
+com\secres\secrescam_lib\CamFrame.class
 com\secres\secrescsv_lib\TableColumnManager$SelectPopupMenu.class
 com\secres\secresbrowser_lib\ImageButton.class
 com\secres\secresmail_lib\MailFrame$3.class
 com\secres\secresbrowser_lib\Browser$1.class
 com\secres\secresos\DockableFrame$1.class
 org\quickterm\quickterm_lib\QuickTerminal$ProtectedDocumentFilter.class
+com\secres\secrescam_lib\CamFrame$4.class
 com\secres\secrescsv_lib\CSVFrame$1.class
 com\secres\secresbrowser_lib\Browser.class
 com\secres\secrescsv_lib\FileDrop$Listener.class
@@ -61,6 +65,7 @@ com\secres\secrescsv_lib\CSVFrame$TablePanel.class
 com\secres\secresmail_lib\MailFrame$2.class
 com\secres\secresmail_lib\MailFrame$LoginSetup.class
 org\gcalc\gcalc_lib\Instruction$InstType.class
+com\secres\secrescam_lib\CamFrame$2.class
 com\secres\secresos\MainView$1.class
 org\quickterm\quickterm_lib\QuickTerminal$Terminal.class
 com\secres\secrescsv_lib\CSVFrame.class
@@ -72,6 +77,7 @@ com\secres\secrescsv_lib\RowNumberTable$RowNumberRenderer.class
 com\secres\secresmail_lib\MailFrame$Model$1Worker$2.class
 com\secres\secresmail_lib\MailFrame$Model$1Worker.class
 org\quickterm\quickterm_lib\QuickTerminal$UserInput.class
+com\secres\secrescam_lib\CamFrame$1.class
 com\secres\secresmail_lib\EmailUtility.class
 com\secres\secrescsv_lib\CSVFrame$Model$1.class
 org\pscode\filebro_lib\FileBrowserFrame$6.class

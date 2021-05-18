@@ -16,6 +16,7 @@ import org.pscode.filebro_lib.FileBrowserFrame;
 import org.quickterm.quickterm_lib.QuickTerminal;
 
 import com.secres.secresbrowser_lib.Browser;
+import com.secres.secrescam_lib.CamFrame;
 import com.secres.secrescsv_lib.CSVFrame;
 import com.secres.secresmail_lib.MailFrame;
 
@@ -54,9 +55,11 @@ public class MainView {
         JMenuItem csvItem = new JMenuItem("SecresCSV");
         JMenuItem browserItem = new JMenuItem("SecresBrowser");
         JMenuItem mailItem = new JMenuItem("SecresMail");
+        JMenuItem camItem = new JMenuItem("SecresCam");
         secresMenu.add(csvItem);
         secresMenu.add(browserItem);
         secresMenu.add(mailItem);
+        secresMenu.add(camItem);
         JMenuItem fileItem = new JMenuItem("FileBro");
         JMenuItem calcItem = new JMenuItem("GCalc");
         JMenuItem termItem = new JMenuItem("QuickTerm");
@@ -101,6 +104,15 @@ public class MainView {
             mailFrame.setResizable(true);
             mailFrame.setIconifiable(true);
             desktopPane.add(mailFrame);
+        });
+        
+        camItem.addActionListener(e -> {
+            JInternalFrame camFrame = new CamFrame("SecresCam", docker);
+            camFrame.setClosable(true);
+            camFrame.setMaximizable(true);
+            camFrame.setResizable(true);
+            camFrame.setIconifiable(true);
+            desktopPane.add(camFrame);
         });
 
         calcItem.addActionListener(e -> {
