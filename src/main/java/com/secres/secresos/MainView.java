@@ -2,7 +2,10 @@ package com.secres.secresos;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Image;
 
+import javax.swing.ImageIcon;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
@@ -27,6 +30,7 @@ public class MainView {
     private static JFrame frame;
     private static JToolBar docker;
     private static JDesktopPane desktopPane;
+    static ImageIcon currentBG = null;//new ImageIcon(MainView.class.getResource("/bg/10-9--thumb.jpg"));
 
     public MainView() {
         createAndShowGUI();
@@ -46,7 +50,19 @@ public class MainView {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        desktopPane = new JDesktopPane();
+        desktopPane = new JDesktopPane() {
+            private static final long serialVersionUID = -7270769994470692569L;
+            private Image image;
+            
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                if(currentBG != null) {
+                    image = currentBG.getImage();
+                    g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+                }
+            }
+        };
 
         JMenuBar menuBar = new JMenuBar();
 
@@ -67,8 +83,13 @@ public class MainView {
         appsMenu.add(fileItem);
         appsMenu.add(calcItem);
         appsMenu.add(termItem);
+        
+        JMenu systemMenu = new JMenu("System");
+        JMenuItem prefItem = new JMenuItem("Preferences");
+        systemMenu.add(prefItem);
 
         menuBar.add(appsMenu);
+        menuBar.add(systemMenu);
 
         csvItem.addActionListener(e -> {
             JInternalFrame csvFrame = new CSVFrame("SecresCSV", docker);
@@ -136,6 +157,15 @@ public class MainView {
             termFrame.setResizable(true);
             termFrame.setIconifiable(true);
             desktopPane.add(termFrame);
+        });
+        
+        prefItem.addActionListener(e -> {
+            JInternalFrame prefFrame = new PreferencesFrame("Preferences", docker);
+            prefFrame.setClosable(true);
+            prefFrame.setMaximizable(true);
+            prefFrame.setResizable(true);
+            prefFrame.setIconifiable(true);
+            desktopPane.add(prefFrame);
         });
 
         frame.add(desktopPane);

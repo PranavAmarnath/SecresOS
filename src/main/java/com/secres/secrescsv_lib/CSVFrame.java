@@ -353,7 +353,7 @@ public class CSVFrame extends DockableFrame {
         exitMenuItem = new JMenuItem("Exit");
         exitMenuItem.setToolTipText("Quit SecresCSV");
         exitMenuItem.addActionListener(e -> {
-            System.exit(0);
+            dispose();
         });
         fileMenu.add(openMenuItem);
         fileMenu.add(closeMenuItem);

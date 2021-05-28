@@ -39,6 +39,8 @@ import javax.swing.JToolBar;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingUtilities;
 import javax.swing.Timer;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.formdev.flatlaf.ui.FlatProgressBarUI;
@@ -72,7 +74,13 @@ public class CamFrame extends DockableFrame {
         webcam = Webcam.getDefault();
         webcam.setViewSize(WebcamResolution.VGA.getSize());
         webcam.open(true);
-
+        
+        this.addInternalFrameListener(new InternalFrameAdapter() {
+            public void internalFrameClosed(InternalFrameEvent e) {
+                webcam.close();
+            }
+        });
+        
         WebcamPanel panel = new WebcamPanel(webcam, false);
         panel.setPreferredSize(WebcamResolution.VGA.getSize());
         panel.setPainter(camPanelPainter);

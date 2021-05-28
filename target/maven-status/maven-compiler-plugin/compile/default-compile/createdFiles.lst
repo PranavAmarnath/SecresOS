@@ -1,3 +1,4 @@
+com\secres\secresos\PreferencesFrame.class
 org\gcalc\gcalc_lib\Sidebar.class
 com\secres\secrescsv_lib\RowNumberTable.class
 org\gcalc\gcalc_lib\EquationEditorListener.class
@@ -6,6 +7,7 @@ com\secres\secresos\MainView.class
 org\quickterm\quickterm_lib\QuickTerminal$ConsolePane$1.class
 org\gcalc\gcalc_lib\Equation$Expression.class
 org\quickterm\quickterm_lib\QuickTerminal$AppendTask.class
+com\secres\secresos\MainView$2.class
 org\pscode\filebro_lib\FileBrowserFrame$8.class
 com\secres\secresmail_lib\HTMLDocumentEditor$StrikeThroughAction.class
 com\secres\secresmail_lib\MailFrame$Model$3.class
@@ -23,6 +25,7 @@ com\secres\secresmail_lib\MailFrame$4.class
 org\quickterm\quickterm_lib\QuickTerminal$ConsolePane.class
 com\secres\secrescam_lib\CamFrame$ProgressCircleUI.class
 com\secres\secrescsv_lib\CSVFrame$FileSizeComparator.class
+com\secres\secrescam_lib\CamFrame$5.class
 org\quickterm\quickterm_lib\QuickTerminal$CommandListener.class
 org\pscode\filebro_lib\FileBrowserFrame$3.class
 org\pscode\filebro_lib\FileBrowserFrame$FileTreeCellRenderer.class
