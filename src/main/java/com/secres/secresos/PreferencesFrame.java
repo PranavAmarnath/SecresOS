@@ -33,8 +33,8 @@ public class PreferencesFrame extends DockableFrame {
         
         ButtonGroup buttonGroup = new ButtonGroup();
         JToggleButton[] imageButtons = new JToggleButton[10];
-        imageButtons[0] = new JToggleButton(createImage("/bg/default.png"));
-        imageButtons[0].setActionCommand("/bg/default.png");
+        imageButtons[0] = new JToggleButton(createImage("/bg/default_bg.PNG"));
+        imageButtons[0].setActionCommand("/bg/default_bg.PNG");
         imageButtons[0].setSelected(true);
         imageButtons[1] = new JToggleButton(createImage("/bg/gradient.jpg"));
         imageButtons[1].setActionCommand("/bg/gradient.jpg");
