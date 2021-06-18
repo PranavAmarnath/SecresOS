@@ -14,7 +14,7 @@ Run with java -jar secresos-1.2-SNAPSHOT.jar (or double-click it). Requires Java
 </kbd>
 &nbsp;
 <kbd>
-    <img src="https://user-images.githubusercontent.com/64337291/122617479-31aff980-d041-11eb-8e65-e95986c0be59.png">
+    <img src="https://user-images.githubusercontent.com/64337291/122621908-d6373900-d04b-11eb-8e37-efdd2d1a2529.png">
 </kbd>
 <P>
 
