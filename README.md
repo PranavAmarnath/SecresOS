@@ -10,7 +10,7 @@ Run with java -jar secresos-1.2-SNAPSHOT.jar (or double-click it). Requires Java
 
 ## Examples
 <kbd>
-    <img src="https://user-images.githubusercontent.com/64337291/122616939-36c07900-d040-11eb-90ff-460ac1cf94b5.png">
+    <img src="https://user-images.githubusercontent.com/64337291/122991952-734ee600-d35a-11eb-8ccd-7662d6530b6d.png">
 </kbd>
 &nbsp;
 <kbd>
