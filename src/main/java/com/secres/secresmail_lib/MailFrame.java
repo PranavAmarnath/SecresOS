@@ -45,8 +45,6 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
-import org.jdesktop.swingx.JXTable;
-
 import com.formdev.flatlaf.util.SystemInfo;
 import com.secres.secresos.DockableFrame;
 import com.secres.secresos.MainView;
@@ -79,7 +77,7 @@ import javafx.scene.web.WebView;
 public class MailFrame extends DockableFrame {
 
     private static final long serialVersionUID = -3216943283450414687L;
-    private JXTable mailTable;
+    private JTable mailTable;
     private WebView view;
     private JSplitPane splitPane;
     private JFXPanel contentPanel;
@@ -98,7 +96,7 @@ public class MailFrame extends DockableFrame {
     private void createAndShowGUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
 
-        mailTable = new JXTable() {
+        mailTable = new JTable() {
             private static final long serialVersionUID = 7038819780398948914L;
 
             @Override
