@@ -2,19 +2,19 @@
 A Java application that relies on the host system's information. It is meant to function as a lightweight UI for quick interaction with the system and Internet, as a standalone application or boot option. This is the main Secres product as it combines all other Secres applications into one.
 
 ## Download
-<a href="https://github.com/PranavAmarnath/SecresOS/releases/download/v1.1/secresos-1.1-SNAPSHOT.jar">
-    <img src="https://img.shields.io/badge/SecresOS-1.1-blue" alt="Download SecresOS 1.1" />
+<a href="https://github.com/PranavAmarnath/SecresOS/releases/download/v1.2/secresos-1.2-SNAPSHOT.jar">
+    <img src="https://img.shields.io/badge/SecresOS-1.2-blue" alt="Download SecresOS 1.2" />
 </a>
 <p>
-Run with java -jar secresos-1.1-SNAPSHOT.jar (or double-click it). Requires Java 11 or newer.
+Run with java -jar secresos-1.2-SNAPSHOT.jar (or double-click it). Requires Java 11 or newer.
 
 ## Examples
 <kbd>
-    <img src="https://user-images.githubusercontent.com/64337291/117395799-85112280-aead-11eb-903e-47dd29f7423d.png">
+    <img src="https://user-images.githubusercontent.com/64337291/122991952-734ee600-d35a-11eb-8ccd-7662d6530b6d.png">
 </kbd>
 &nbsp;
 <kbd>
-    <img src="https://user-images.githubusercontent.com/64337291/118728230-ac8ab800-b7e8-11eb-9804-07b66b22cfd6.png">
+    <img src="https://user-images.githubusercontent.com/64337291/122621908-d6373900-d04b-11eb-8e37-efdd2d1a2529.png">
 </kbd>
 <P>
 
