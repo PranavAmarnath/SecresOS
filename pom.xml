@@ -10,7 +10,7 @@
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
-		<javafx-version>11</javafx-version>
+		<javafx-version>17.0.0.1</javafx-version>
 	</properties>
 	<dependencies>
 		<dependency>
