@@ -4,7 +4,7 @@
   <groupId>com.secres</groupId>
   <artifactId>secresos</artifactId>
   <name>SecresOS</name>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.3-SNAPSHOT</version>
   <description>An operating system in a desktop application.</description>
   <build>
     <plugins>

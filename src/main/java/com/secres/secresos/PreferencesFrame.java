@@ -7,6 +7,8 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.beans.PropertyVetoException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
@@ -17,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
+import javax.swing.SwingUtilities;
 
 public class PreferencesFrame extends DockableFrame {
 
@@ -30,34 +33,45 @@ public class PreferencesFrame extends DockableFrame {
     private void createAndShowGUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
         JPanel imagePanel = new JPanel(new GridLayout(4, 4));
+        int buttonIndex = 0;
         
         ButtonGroup buttonGroup = new ButtonGroup();
-        JToggleButton[] imageButtons = new JToggleButton[10];
-        imageButtons[0] = new JToggleButton(createImage("/bg/default_bg.PNG"));
-        imageButtons[0].setActionCommand("/bg/default_bg.PNG");
-        imageButtons[0].setSelected(true);
-        imageButtons[1] = new JToggleButton(createImage("/bg/gradient.jpg"));
-        imageButtons[1].setActionCommand("/bg/gradient.jpg");
-        imageButtons[2] = new JToggleButton(createImage("/bg/10-9--thumb.jpg"));
-        imageButtons[2].setActionCommand("/bg/10-9--thumb.jpg");
-        imageButtons[3] = new JToggleButton(createImage("/bg/10-10--thumb.jpg"));
-        imageButtons[3].setActionCommand("/bg/10-10--thumb.jpg");
-        imageButtons[4] = new JToggleButton(createImage("/bg/10-11--thumb.jpg"));
-        imageButtons[4].setActionCommand("/bg/10-11--thumb.jpg");
-        imageButtons[5] = new JToggleButton(createImage("/bg/10-12--thumb.jpg"));
-        imageButtons[5].setActionCommand("/bg/10-12--thumb.jpg");
-        imageButtons[6] = new JToggleButton(createImage("/bg/10-13--thumb.jpg"));
-        imageButtons[6].setActionCommand("/bg/10-13--thumb.jpg");
-        imageButtons[7] = new JToggleButton(createImage("/bg/10-14-Day-Thumb.jpg"));
-        imageButtons[7].setActionCommand("/bg/10-14-Day-Thumb.jpg");
-        imageButtons[8] = new JToggleButton(createImage("/bg/10-14-Night-Thumb.jpg"));
-        imageButtons[8].setActionCommand("/bg/10-14-Night-Thumb.jpg");
-        imageButtons[9] = new JToggleButton(createImage("/bg/recreate-macos-big-sur.jpeg"));
-        imageButtons[9].setActionCommand("/bg/recreate-macos-big-sur.jpeg");
+        if(MainView.imageButtons == null) {
+            MainView.imageButtons = new JToggleButton[10];
+            MainView.imageButtons[0] = new JToggleButton(createImage("/bg/default_bg.PNG"));
+            MainView.imageButtons[0].setActionCommand("/bg/default_bg.PNG");
+            MainView.imageButtons[1] = new JToggleButton(createImage("/bg/gradient.jpg"));
+            MainView.imageButtons[1].setActionCommand("/bg/gradient.jpg");
+            MainView.imageButtons[2] = new JToggleButton(createImage("/bg/10-9--thumb.jpg"));
+            MainView.imageButtons[2].setActionCommand("/bg/10-9--thumb.jpg");
+            MainView.imageButtons[3] = new JToggleButton(createImage("/bg/10-10--thumb.jpg"));
+            MainView.imageButtons[3].setActionCommand("/bg/10-10--thumb.jpg");
+            MainView.imageButtons[4] = new JToggleButton(createImage("/bg/10-11--thumb.jpg"));
+            MainView.imageButtons[4].setActionCommand("/bg/10-11--thumb.jpg");
+            MainView.imageButtons[5] = new JToggleButton(createImage("/bg/10-12--thumb.jpg"));
+            MainView.imageButtons[5].setActionCommand("/bg/10-12--thumb.jpg");
+            MainView.imageButtons[6] = new JToggleButton(createImage("/bg/10-13--thumb.jpg"));
+            MainView.imageButtons[6].setActionCommand("/bg/10-13--thumb.jpg");
+            MainView.imageButtons[7] = new JToggleButton(createImage("/bg/10-14-Day-Thumb.jpg"));
+            MainView.imageButtons[7].setActionCommand("/bg/10-14-Day-Thumb.jpg");
+            MainView.imageButtons[8] = new JToggleButton(createImage("/bg/10-14-Night-Thumb.jpg"));
+            MainView.imageButtons[8].setActionCommand("/bg/10-14-Night-Thumb.jpg");
+            MainView.imageButtons[9] = new JToggleButton(createImage("/bg/recreate-macos-big-sur.jpeg"));
+            MainView.imageButtons[9].setActionCommand("/bg/recreate-macos-big-sur.jpeg");
+        }
         
-        for(JToggleButton btn : imageButtons) {
+        for(JToggleButton btn : MainView.imageButtons) {
             buttonGroup.add(btn);
             imagePanel.add(btn);
+        }
+        
+        if(MainView.selectedButton == null) {
+            MainView.selectedButton = MainView.imageButtons[0];
+        }
+        else {
+            ArrayList<JToggleButton> imageButtonsList = new ArrayList<JToggleButton>(Arrays.asList(MainView.imageButtons));
+            buttonIndex = imageButtonsList.indexOf(MainView.selectedButton);
+            MainView.imageButtons[buttonIndex].setSelected(true);
         }
         
         mainPanel.add(imagePanel);
@@ -69,6 +83,7 @@ public class PreferencesFrame extends DockableFrame {
 
                 if(button.isSelected()) {
                     MainView.currentBG = new ImageIcon(getClass().getResource(button.getActionCommand()));
+                    MainView.selectedButton = (JToggleButton) button;
                     MainView.getDesktop().getGraphics().drawImage(new ImageIcon(getClass().getResource(button.getActionCommand())).getImage(), 0, 0, MainView.getDesktop().getWidth(), MainView.getDesktop().getHeight(), MainView.getDesktop());
                 }
             }
@@ -84,6 +99,11 @@ public class PreferencesFrame extends DockableFrame {
         add(mainPanel);
         pack();
         setVisible(true);
+
+        final int i = buttonIndex;
+        SwingUtilities.invokeLater(() -> {
+            MainView.imageButtons[i].requestFocusInWindow();
+        });
     }
 
     private Icon createImage(String PATH) {

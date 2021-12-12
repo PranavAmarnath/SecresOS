@@ -12,6 +12,7 @@ import javax.swing.JInternalFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 
 import org.gcalc.gcalc_lib.GraphWindow;
@@ -30,7 +31,9 @@ public class MainView {
     private static JFrame frame;
     private static JToolBar docker;
     private static JDesktopPane desktopPane;
-    static ImageIcon currentBG = null;//new ImageIcon(MainView.class.getResource("/bg/10-9--thumb.jpg"));
+    static ImageIcon currentBG = null;
+    static JToggleButton selectedButton = null;
+    static JToggleButton[] imageButtons;
 
     public MainView() {
         createAndShowGUI();
