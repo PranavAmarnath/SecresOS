@@ -1,6 +1,7 @@
 package com.secres.secresos;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -34,6 +35,7 @@ public class MainView {
     static ImageIcon currentBG = null;
     static JToggleButton selectedButton = null;
     static JToggleButton[] imageButtons;
+    static Color currentAccentColor = Color.decode("#2675BF");
 
     public MainView() {
         createAndShowGUI();

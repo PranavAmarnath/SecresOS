@@ -9,6 +9,7 @@ import java.beans.PropertyVetoException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
@@ -16,10 +17,15 @@ import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JColorChooser;
 import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
 import javax.swing.JToggleButton;
 import javax.swing.JToolBar;
 import javax.swing.SwingUtilities;
+
+import com.formdev.flatlaf.FlatLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 
 public class PreferencesFrame extends DockableFrame {
 
@@ -32,6 +38,7 @@ public class PreferencesFrame extends DockableFrame {
     
     private void createAndShowGUI() {
         JPanel mainPanel = new JPanel(new BorderLayout());
+        JTabbedPane tabbedPane = new JTabbedPane();
         JPanel imagePanel = new JPanel(new GridLayout(4, 4));
         int buttonIndex = 0;
         
@@ -73,8 +80,13 @@ public class PreferencesFrame extends DockableFrame {
             buttonIndex = imageButtonsList.indexOf(MainView.selectedButton);
             MainView.imageButtons[buttonIndex].setSelected(true);
         }
+        tabbedPane.addTab("Background", imagePanel);
         
-        mainPanel.add(imagePanel);
+        JPanel colorPanel = new JPanel(new BorderLayout());
+        JColorChooser colorChooser = new JColorChooser();
+        colorPanel.add(colorChooser);
+        tabbedPane.addTab("Accent Color", colorPanel);
+        
         JPanel applyPanel = new JPanel();
         JButton applyButton = new JButton("Apply");
         applyButton.addActionListener(e -> {
@@ -93,8 +105,16 @@ public class PreferencesFrame extends DockableFrame {
             } catch (PropertyVetoException e1) {
                 e1.printStackTrace();
             }
+            
+            MainView.currentAccentColor = colorChooser.getColor();
+            String buf = Integer.toHexString(MainView.currentAccentColor.getRGB());
+            String hex = "#" + buf.substring(buf.length()-6);
+            FlatLaf.setGlobalExtraDefaults(Collections.singletonMap("@accentColor", hex));
+            FlatLightLaf.setup();
+            FlatLaf.updateUI();
         });
         applyPanel.add(applyButton);
+        mainPanel.add(tabbedPane);
         mainPanel.add(applyPanel, BorderLayout.SOUTH);
         add(mainPanel);
         pack();
