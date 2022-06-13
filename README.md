@@ -2,11 +2,11 @@
 A Java application that relies on the host system's information. It is meant to function as a lightweight UI for quick interaction with the system and Internet, as a standalone application or boot option. This is the main Secres product as it combines all other Secres applications into one.
 
 ## Download
-<a href="https://github.com/PranavAmarnath/SecresOS/releases/download/v1.2/secresos-1.2-SNAPSHOT.jar">
-    <img src="https://img.shields.io/badge/SecresOS-1.2-blue" alt="Download SecresOS 1.2" />
+<a href="https://github.com/PranavAmarnath/SecresOS/releases/download/v1.3/secresos-1.3-SNAPSHOT.jar">
+    <img src="https://img.shields.io/badge/SecresOS-1.3-blue" alt="Download SecresOS 1.3" />
 </a>
 <p>
-Run with java -jar secresos-1.2-SNAPSHOT.jar (or double-click it). Requires Java 11 or newer.
+Run with java -jar secresos-1.3-SNAPSHOT.jar (or double-click it). Requires Java 17 or newer.
 
 ## Examples
 <kbd>
@@ -14,10 +14,10 @@ Run with java -jar secresos-1.2-SNAPSHOT.jar (or double-click it). Requires Java
 </kbd>
 &nbsp;
 <kbd>
-    <img src="https://user-images.githubusercontent.com/64337291/122621908-d6373900-d04b-11eb-8e37-efdd2d1a2529.png">
+    <img src="https://user-images.githubusercontent.com/64337291/173302432-d3650c71-2d6d-464d-af98-2db23cee7d5a.png">
 </kbd>
 <P>
-
+    
 ## Built-in Apps
 * [Secres](https://github.com/PranavAmarnath/SecresOS) (first-party, Apache 2.0) by Pranav Amarnath
     * [SecresCSV](https://github.com/PranavAmarnath/SecresCSV)
