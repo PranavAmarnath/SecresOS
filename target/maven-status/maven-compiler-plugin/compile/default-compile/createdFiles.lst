@@ -74,6 +74,7 @@ org\quickterm\quickterm_lib\QuickTerminal$Terminal.class
 com\secres\secrescsv_lib\CSVFrame.class
 com\secres\secresmail_lib\HTMLDocumentEditor$RedoAction.class
 com\secres\secresmail_lib\MailFrame$Model$1.class
+com\secres\secrescsv_lib\CSVFrame$TablePanel$1.class
 org\gcalc\gcalc_lib\Factorial.class
 com\secres\secresbrowser_lib\Browser$2.class
 com\secres\secrescsv_lib\RowNumberTable$RowNumberRenderer.class
@@ -94,6 +95,7 @@ com\secres\secresmail_lib\HTMLDocumentEditor$HTMLFileFilter.class
 com\secres\secresos\DockableFrame.class
 com\secres\secresmail_lib\MailFrame.class
 com\secres\secresos\Main.class
+com\secres\secrescsv_lib\CSVFrame$Model$1Worker$1.class
 org\pscode\filebro_lib\FileBrowserFrame$1.class
 org\quickterm\quickterm_lib\QuickTerminal$StreamReader.class
 com\secres\secresmail_lib\FileListCellRenderer.class

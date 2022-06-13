@@ -54,13 +54,17 @@ import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingWorker;
 import javax.swing.JTable.PrintMode;
+import javax.swing.event.ChangeEvent;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
 import org.jdesktop.swingx.JXBusyLabel;
 import org.jdesktop.swingx.JXHyperlink;
+import org.jdesktop.swingx.JXTable;
 
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import com.opencsv.CSVReader;
@@ -478,7 +482,7 @@ public class CSVFrame extends DockableFrame {
         });
         namePanel.add(nameLink, SwingConstants.CENTER);
         JPanel versionPanel = new JPanel();
-        JLabel versionLabel = new JLabel("Version 2.0", SwingConstants.CENTER);
+        JLabel versionLabel = new JLabel("Version 3.0", SwingConstants.CENTER);
         versionLabel.setForeground(new Color(150, 150, 150));
         versionLabel.setFont(new Font("SansSerif", Font.BOLD, 11));
         versionPanel.add(versionLabel);
@@ -524,12 +528,36 @@ public class CSVFrame extends DockableFrame {
     }
 
     class TablePanel extends JPanel {
-        /**
-         * 
-         */
         private static final long serialVersionUID = -3961573416357564849L;
-        private JTable table = new JTable();
-        private RowNumberTable rowTable;
+        
+        private JXTable table = new JXTable() {
+            private static final long serialVersionUID = -971240095210811807L;
+
+            @Override
+            public void columnMarginChanged(ChangeEvent e) {
+                // implements the change in this method from JTable
+                // see: https://stackoverflow.com/questions/28236493/why-is-jxtable-losing-input-where-jtable-is-not
+                if(isEditing() && !getCellEditor().stopCellEditing()) {
+                    getCellEditor().cancelCellEditing();
+                }
+                TableColumn resizingColumn = tableHeader.getResizingColumn();
+                // Need to do this here, before the parent's
+                // layout manager calls getPreferredSize().
+                if(resizingColumn != null && autoResizeMode == AUTO_RESIZE_OFF) {
+                    resizingColumn.setPreferredWidth(resizingColumn.getWidth());
+                }
+                resizeAndRepaint();
+            }
+            
+            @Override
+            public void changeSelection(int rowIndex, int columnIndex, boolean toggle, boolean extend) {
+                if(convertColumnIndexToModel(columnIndex) == 0) {
+                    return;
+                }
+                super.changeSelection(rowIndex, columnIndex, toggle, extend);
+            }
+        };
+        
         private JScrollPane scrollPane;
 
         public TablePanel() {
@@ -539,17 +567,10 @@ public class CSVFrame extends DockableFrame {
             table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
             try {
                 table.setAutoCreateRowSorter(true);
-            } catch (Exception e) {
-                /* Move on (i.e. ignore sorting if exception occurs) */ }
+            } catch (Exception e) { /* Move on (i.e. ignore sorting if exception occurs) */ }
             table.setCellSelectionEnabled(true);
 
-            new TableColumnManager(table);
-
             scrollPane = new JScrollPane(table);
-            rowTable = new RowNumberTable(table);
-            rowTable.setShowGrid(true);
-            scrollPane.setRowHeaderView(rowTable);
-            scrollPane.setCorner(JScrollPane.UPPER_LEFT_CORNER, rowTable.getTableHeader());
 
             add(scrollPane);
         }
@@ -557,14 +578,6 @@ public class CSVFrame extends DockableFrame {
         public JTable getTable() {
             return table;
         }
-
-        public RowNumberTable getRowTable() {
-            return rowTable;
-        }
-    }
-
-    public JTabbedPane getTabbedPane() {
-        return tabbedPane;
     }
 
     public JXBusyLabel getBusyLabel() {
@@ -592,14 +605,13 @@ public class CSVFrame extends DockableFrame {
         /** OpenCSV parser */
         private CSVReader reader;
         /** Current line */
-        private String[] line;
-
+        private Object[] line;
+        
         /**
          * Model constructor to load CSV data
-         * 
-         * @param path    Path to file
-         * @param table   The table
-         * @param refresh If the user is refreshing (true) or if it's the first load (false)
+         * @param path  Path to file
+         * @param table  The table
+         * @param refresh  If the user is refreshing (true) or if it's the first load (false)
          */
         public Model(File path, JTable table, boolean refresh, boolean isLastFile) {
             createBusyLabel();
@@ -612,34 +624,57 @@ public class CSVFrame extends DockableFrame {
                         showError("File Not Found :(", e1);
                     }
                     try {
-                        header = (String[]) reader.readNext();
+                        header = reader.readNext();
+                        Object[] headerWithRowNum = new Object[header.length + 1];
+                        headerWithRowNum[0] = "#";
+                        for(int i = 1; i < headerWithRowNum.length; i++) {
+                            headerWithRowNum[i] = header[i-1];
+                        }
+                        header = headerWithRowNum;
                     } catch (CsvValidationException e1) {
                         showError("CSV Not Validated :(", e1);
                     } catch (IOException e1) {
                         showError("I/O Exception :(", e1);
                     }
                     //SwingUtilities.invokeAndWait(() -> model = new DefaultTableModel(header, 0)); // NOT invokeLater() because model HAS to be initialized immediately on EDT
-                    model = new DefaultTableModel(header, 0);
+                    model = new DefaultTableModel(header, 0) {
+                        private static final long serialVersionUID = -4147142493942463884L;
+
+                        @Override
+                        public boolean isCellEditable(int row, int column) {
+                            return column != 0;
+                        }
+                    };
                     table.setModel(model);
                     try {
+                        int i = 1;
                         while((line = reader.readNext()) != null) {
+                            Object[] lineWithRowNum = new Object[line.length + 1];
+                            lineWithRowNum[0] = i;
+                            for(int j = 1; j < lineWithRowNum.length; j++) {
+                                lineWithRowNum[j] = line[j-1];
+                            }
+                            line = lineWithRowNum;
                             model.addRow(line);
+                            i++;
                         }
-                    } catch (Exception e) {
+                    } catch(Exception e) {
                         showError("An Exception Occurred :(", e);
                     }
                     return null;
                 }
-
                 @Override
                 protected void done() {
                     try {
+                        table.requestFocusInWindow();
+                        DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
+                        table.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                         if(isLastFile) {
                             removeBusyLabel(); // remove the busy label only after the last file (largest file) is over
                         }
                         if(refresh == true) {
-                            table.requestFocus();
-                            ((TablePanel) tabbedPane.getSelectedComponent()).getTable().setModel(model);
+                            table.setModel(model);
                             JOptionPane.showInternalMessageDialog(getThis(), "Refreshed data.");
                         }
                         else {
@@ -650,17 +685,15 @@ public class CSVFrame extends DockableFrame {
                         showError("I/O Exception :(", e);
                     }
                 }
-            }
-            ;
+            };
             Worker worker = new Worker();
             worker.execute();
         }
-
+        
         /**
          * Executes {@link #exportToCSV(String, JTable)} on a SwingWorker after creating the busy label
-         * 
          * @param path  The path to export to
-         * @param table The table to export
+         * @param table  The table to export
          * @see #save(String, JTable)
          */
         void save(String path, JTable table) {
@@ -671,7 +704,6 @@ public class CSVFrame extends DockableFrame {
                     exportToCSV(path, table);
                     return null;
                 }
-
                 @Override
                 protected void done() {
                     removeBusyLabel();
@@ -681,11 +713,10 @@ public class CSVFrame extends DockableFrame {
                 }
             }.execute();
         }
-
+        
         /**
          * Export table data to same path of CSV file.
-         * 
-         * @param pathToExportTo The path to export to
+         * @param pathToExportTo  The path to export to
          * @param tableToExport  The table to export
          */
         private void exportToCSV(String pathToExportTo, JTable tableToExport) {
@@ -693,7 +724,7 @@ public class CSVFrame extends DockableFrame {
                 TableModel model = tableToExport.getModel();
                 FileWriter csv = new FileWriter(new File(pathToExportTo));
 
-                for(int i = 0; i < model.getColumnCount(); i++) {
+                for(int i = 1; i < model.getColumnCount(); i++) {
                     if(i != model.getColumnCount() - 1) {
                         csv.write(model.getColumnName(i) + ",");
                     }
@@ -705,7 +736,7 @@ public class CSVFrame extends DockableFrame {
                 csv.write("\n");
 
                 for(int i = 0; i < model.getRowCount(); i++) {
-                    for(int j = 0; j < model.getColumnCount(); j++) {
+                    for(int j = 1; j < model.getColumnCount(); j++) {
                         if(j != model.getColumnCount() - 1) {
                             csv.write(model.getValueAt(i, j).toString() + ",");
                         }
@@ -718,22 +749,21 @@ public class CSVFrame extends DockableFrame {
 
                 csv.close();
             } catch (IOException e) {
-                showError("I/O Exception :(", e);
+                showError("IOException :(", e);
             }
         }
-
+        
         /**
          * A method to show an error in a <code>JOptionPane</code>.
-         * 
-         * @param title Title of the dialog
-         * @param e     The Exception
+         * @param title  Title of the dialog
+         * @param e  The Exception
          */
         private void showError(String title, Exception e) {
             JTextPane textPane = new JTextPane();
             textPane.setText(e.getMessage());
             JOptionPane.showInternalMessageDialog(getThis(), textPane, title, JOptionPane.ERROR_MESSAGE);
         }
-
+        
         /**
          * Displays the busy label.
          */
@@ -744,7 +774,7 @@ public class CSVFrame extends DockableFrame {
             busyLabel.setBusy(true);
             busyLabel.setVisible(true);
         }
-
+        
         /**
          * Removes the busy label.
          */
@@ -755,25 +785,23 @@ public class CSVFrame extends DockableFrame {
             busyLabel.setBusy(false);
             busyLabel.setVisible(false);
         }
-
+        
         /**
          * Returns table model
-         * 
          * @return <code>DefaultTableModel</code> - table model
          */
         public DefaultTableModel getModel() {
             return model;
         }
-
+        
         /**
          * Returns table header
-         * 
          * @return <code>Object[]</code> - header
          */
         public Object[] getHeaders() {
             return header;
         }
-
+        
     }
 
     private JInternalFrame getThis() {
