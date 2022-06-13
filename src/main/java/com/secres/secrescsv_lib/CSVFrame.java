@@ -487,7 +487,7 @@ public class CSVFrame extends DockableFrame {
         versionLabel.setFont(new Font("SansSerif", Font.BOLD, 11));
         versionPanel.add(versionLabel);
         JPanel copyrightPanel = new JPanel();
-        JLabel copyrightLabel = new JLabel("<html>Copyright \u00a9 2021 Pranav Amarnath<br><div style='text-align: center;'>All Rights Reserved.</div><br><div style='text-align: center;'>\"Slider Icon\" Provided By Icons8.</div></html>", SwingConstants.CENTER);
+        JLabel copyrightLabel = new JLabel("<html>Copyright \u00a9 2022 Pranav Amarnath<br><div style='text-align: center;'>All Rights Reserved.</div><br><div style='text-align: center;'>\"Slider Icon\" Provided By Icons8.</div></html>", SwingConstants.CENTER);
         copyrightLabel.setForeground(new Color(150, 150, 150));
         copyrightLabel.setFont(new Font("SansSerif", Font.BOLD, 11));
         copyrightPanel.add(copyrightLabel);
@@ -530,7 +530,7 @@ public class CSVFrame extends DockableFrame {
     class TablePanel extends JPanel {
         private static final long serialVersionUID = -3961573416357564849L;
         
-        private JXTable table = new JXTable() {
+        private JTable table = new JTable() {
             private static final long serialVersionUID = -971240095210811807L;
 
             @Override
