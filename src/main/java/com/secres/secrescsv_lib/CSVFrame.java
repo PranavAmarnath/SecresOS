@@ -674,6 +674,9 @@ public class CSVFrame extends DockableFrame {
                             removeBusyLabel(); // remove the busy label only after the last file (largest file) is over
                         }
                         if(refresh == true) {
+                            if(table.isEditing() && !table.getCellEditor().stopCellEditing()) {
+                                table.getCellEditor().cancelCellEditing();
+                            }
                             table.setModel(model);
                             JOptionPane.showInternalMessageDialog(getThis(), "Refreshed data.");
                         }
